@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnector {
 
-    private final String DRIVER_NAME = "com.mysql.jdbc.Driver";
+    private final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
     private String url = null;
     private String userName = null;
     private String userPassword = null;
@@ -28,11 +28,12 @@ public class DBConnector {
         try {
             Class.forName(DRIVER_NAME);
             this.connection = DriverManager.getConnection(this.url, this.userName, this.userPassword);
+            System.out.println("Connection completed \n\n");
         } catch (ClassNotFoundException err) {
-            System.out.println("Missing JDBC driver...");
+            System.out.println("Missing JDBC driver... \n\n");
             err.printStackTrace();
         } catch (SQLException err) {
-            System.out.println("Db connection is failed...");
+            System.out.println("Db connection is failed... \n\n");
             err.printStackTrace();
         }
     }
