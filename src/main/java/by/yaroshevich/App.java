@@ -32,10 +32,16 @@ public class App {
             System.exit(0);
 
         } catch (IOException err) {
-            err.printStackTrace();
+            System.out.println("***ERROR***");
+            System.out.println(err.getMessage());
         } catch (SQLException err) {
+            System.out.println("***ERROR***");
             System.out.println("Request process error.");
-            err.printStackTrace();
+            System.out.println(err.getMessage());
+            System.out.println();
+        } catch (NullPointerException err) {
+            System.out.println("***ERROR***");
+            System.out.println("Can't connect to current url.");
         }
     }
 

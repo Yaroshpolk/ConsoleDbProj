@@ -33,8 +33,11 @@ public class DBConnector {
             System.out.println("Missing JDBC driver... \n\n");
             err.printStackTrace();
         } catch (SQLException err) {
-            System.out.println("Db connection is failed... \n\n");
-            err.printStackTrace();
+            System.out.println("Db connection is failed...");
+            if (err.getErrorCode() == 1045) {
+                System.out.println("***ERROR***");
+                System.out.println("Access denied.");
+            }
         }
     }
 }

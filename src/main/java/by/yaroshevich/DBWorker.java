@@ -17,8 +17,9 @@ public class DBWorker {
         try {
             this.statement.executeUpdate(query);
             System.out.println("Query completed");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException err) {
+            System.out.println("***ERROR***");
+            System.out.println(err.getMessage());
         }
     }
 
@@ -37,19 +38,26 @@ public class DBWorker {
                 System.out.println("All records displayed");
             }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } catch (SQLException err) {
+            System.out.println("***ERROR***");
+            System.out.println(err.getMessage());
         }
     }
 
     public void processTheRequest(String query) {
+        if (query.isEmpty()) {
+            return;
+        }
+
         String queryStmt = query.split(" ")[0];
 
         if (queryStmt.equalsIgnoreCase("INSERT") || queryStmt.equalsIgnoreCase("DELETE")
                 || queryStmt.equalsIgnoreCase("UPDATE")) {
             executeUpdate(query);
-        } else {
+        } else if (queryStmt.equalsIgnoreCase("SELECT")){
             executeQuery(query);
+        } else {
+            System.out.println("");
         }
     }
 
