@@ -7,10 +7,9 @@ import java.sql.SQLException;
 public class DBConnector {
 
     private final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
-    private String url = null;
-    private String userName = null;
-    private String userPassword = null;
-
+    private final String url;
+    private final String userName;
+    private final String userPassword;
     private Connection connection = null;
 
     public DBConnector(String url, String userName, String userPassword) {
@@ -20,6 +19,7 @@ public class DBConnector {
 
         this.run();
     }
+
     public Connection getConnection() {
         return this.connection;
     }

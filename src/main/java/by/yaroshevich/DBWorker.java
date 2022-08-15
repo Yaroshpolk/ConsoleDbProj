@@ -7,45 +7,49 @@ import java.sql.Statement;
 
 public class DBWorker {
 
-    private Statement statement = null;
+    private final Statement statement;
 
     public DBWorker(Statement statement) {
         this.statement = statement;
     }
 
-    public Statement getStatement() {
-        return this.statement;
+    private void executeUpdate(String query) {
+        try {
+            this.statement.executeUpdate(query);
+            System.out.println("Query completed");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public void runSql(String query) {
+    private void executeQuery(String query) {
+        try {
+            ResultSet resultSet = this.statement.executeQuery(query);
+            ResultSetMetaData resultSetMeta = resultSet.getMetaData();
+
+            while (resultSet.next()) {
+                for (int i = 1; i <= resultSetMeta.getColumnCount(); i++) {
+                    System.out.println(resultSetMeta.getColumnName(i) + ": " + resultSet.getString(i));
+                }
+                System.out.println("________________________");
+            }
+            if (!resultSet.next()) {
+                System.out.println("All records displayed");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void processTheRequest(String query) {
         String queryStmt = query.split(" ")[0];
 
         if (queryStmt.equalsIgnoreCase("INSERT") || queryStmt.equalsIgnoreCase("DELETE")
                 || queryStmt.equalsIgnoreCase("UPDATE")) {
-            try {
-                this.statement.executeUpdate(query);
-                System.out.println("Query completed");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            executeUpdate(query);
         } else {
-            try {
-                ResultSet resultSet = this.statement.executeQuery(query);
-                ResultSetMetaData resultSetMeta = resultSet.getMetaData();
-
-                while (resultSet.next()) {
-                    for (int i = 1; i <= resultSetMeta.getColumnCount(); i++) {
-                        System.out.println(resultSetMeta.getColumnName(i) + ": " + resultSet.getString(i));
-                    }
-                    System.out.println("________________________");
-                }
-                if (!resultSet.next()) {
-                    System.out.println("All records displayed");
-                }
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            executeQuery(query);
         }
     }
 
