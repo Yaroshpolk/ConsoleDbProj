@@ -20,7 +20,8 @@ public class DBWorker {
     public void runSql(String query) {
         String queryStmt = query.split(" ")[0];
 
-        if (queryStmt.equals("INSERT") || queryStmt.equals("DELETE") || queryStmt.equals("UPDATE")) {
+        if (queryStmt.equalsIgnoreCase("INSERT") || queryStmt.equalsIgnoreCase("DELETE")
+                || queryStmt.equalsIgnoreCase("UPDATE")) {
             try {
                 this.statement.executeUpdate(query);
                 System.out.println("Query completed");
