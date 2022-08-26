@@ -7,8 +7,7 @@
     <list default="true" id="e063406f-b00b-4103-9f20-1c98c0290a9d" name="Changes" comment="Created maven project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/by/yaroshevich/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/yaroshevich/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/yaroshevich/DBConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/yaroshevich/DBConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/by/yaroshevich/DBWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/yaroshevich/DBWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/yaroshevich/Messenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/yaroshevich/Messenger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,8 @@
       <workItem from="1660317211138" duration="1195000" />
       <workItem from="1660389768614" duration="1804000" />
       <workItem from="1660563839949" duration="3924000" />
-      <workItem from="1660574210846" duration="7402000" />
+      <workItem from="1660574210846" duration="9252000" />
+      <workItem from="1661498551796" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="Created maven project">
       <created>1660052352018</created>

@@ -11,4 +11,11 @@ public class Messenger {
     public static void printExitMessage() {
         System.out.println("Closing the app.");
     }
+
+    public static void printErrorMessage(String ...strs) {
+        System.out.println("***ERROR***");
+        for (String str : strs) {
+            System.out.println(str);
+        }
+    }
 }

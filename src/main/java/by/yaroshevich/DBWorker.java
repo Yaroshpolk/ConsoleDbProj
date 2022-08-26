@@ -18,8 +18,7 @@ public class DBWorker {
             this.statement.executeUpdate(query);
             System.out.println("Query completed");
         } catch (SQLException err) {
-            System.out.println("***ERROR***");
-            System.out.println(err.getMessage());
+            Messenger.printErrorMessage(err.getMessage());
         }
     }
 
@@ -39,8 +38,7 @@ public class DBWorker {
             }
 
         } catch (SQLException err) {
-            System.out.println("***ERROR***");
-            System.out.println(err.getMessage());
+            Messenger.printErrorMessage(err.getMessage());
         }
     }
 

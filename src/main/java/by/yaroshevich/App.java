@@ -32,16 +32,11 @@ public class App {
             System.exit(0);
 
         } catch (IOException err) {
-            System.out.println("***ERROR***");
-            System.out.println(err.getMessage());
+            Messenger.printErrorMessage(err.getMessage());
         } catch (SQLException err) {
-            System.out.println("***ERROR***");
-            System.out.println("Request process error.");
-            System.out.println(err.getMessage());
-            System.out.println();
+            Messenger.printErrorMessage("Request process error.", err.getMessage() + "\n");
         } catch (NullPointerException err) {
-            System.out.println("***ERROR***");
-            System.out.println("Can't connect to current url.");
+            Messenger.printErrorMessage("Can't connect to current url.");
         }
     }
 

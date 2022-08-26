@@ -30,12 +30,11 @@ public class DBConnector {
             this.connection = DriverManager.getConnection(this.url, this.userName, this.userPassword);
             System.out.println("Connection completed \n\n");
         } catch (ClassNotFoundException err) {
-            System.out.println("Missing JDBC driver... \n\n");
+            Messenger.printErrorMessage("Missing JDBC driver... \n\n");
             err.printStackTrace();
         } catch (SQLException err) {
-            System.out.println("Db connection is failed...");
+            Messenger.printErrorMessage("Db connection is failed...");
             if (err.getErrorCode() == 1045) {
-                System.out.println("***ERROR***");
                 System.out.println("Access denied.");
             }
         }
